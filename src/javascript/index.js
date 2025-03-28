@@ -1,10 +1,14 @@
-const operationDisplay = document.querySelector('.display .operation')
-const resultDisplay = document.querySelector('.display .result')
-const buttons = document.querySelectorAll('.input-button')
+// Imports
+import { $, $$, calculate, getTokens } from './utils.js'
 
-// 🔧 Función que procesa la entrada (clic o teclado)
+// Lógica
+const operationDisplay = $('.display .operation')
+const resultDisplay = $('.display .result')
+const buttons = $$('.input-button')
+
+// Función que procesa la entrada (clic o teclado)
 const manejarInput = (input) => {
-  const validKeys = '0123456789+-*/.=BackspaceEnter'
+  const validKeys = '0123456789+-*.=BackspaceEnter'
   let value = typeof input === 'string' ? input : input.target.innerText
 
   // Si viene del teclado y no está en las teclas permitidas, se ignora
@@ -15,7 +19,7 @@ const manejarInput = (input) => {
     value = input.key === 'Enter' ? '=' : input.key === 'Backspace' ? 'C' : input.key
   }
 
-  // 🌟 Lógica básica de la calculadora
+  // Lógica básica de la calculadora
   if (!isNaN(value) || value === '.') {
     // Es un número o punto decimal
     operationDisplay.textContent += value
@@ -25,21 +29,23 @@ const manejarInput = (input) => {
   } else if (value === '=') {
     // Calcular el resultado
     try {
-      resultDisplay.textContent = eval(operationDisplay.textContent.replace('=', ''))
-    } catch {
-      resultDisplay.textContent = 'Error'
+      const tokens = getTokens(operationDisplay.textContent.replace('=', ''))
+      const result = calculate(tokens)
+      resultDisplay.textContent = result
+    } catch (e) {
+      resultDisplay.textContent = `Error! ${e}`
     }
-  } else if (value === 'C') {
+  } else if (value === 'AC') {
     // Borrar todo
     operationDisplay.textContent = ''
     resultDisplay.textContent = ''
   }
 }
 
-// 🔥 Event listeners para clics en los botones
+// Event listeners para clics en los botones
 buttons.forEach((button) => {
   button.addEventListener('click', manejarInput)
 })
 
-// 🔥 Event listener para las teclas del teclado
+// Event listener para las teclas del teclado
 document.addEventListener('keydown', manejarInput)
