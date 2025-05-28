@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+body {
+  background-color: var(--color-bg-primary);
+  font-family: var(--font-base);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  margin: 0;
+  height: 100%;
+}
+
+input,
+button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  appearance: none;
+  line-height: 1;
+}

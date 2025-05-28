@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  /* Brand Colors */
+  --color-primary-dark:   #000814;
+  --color-primary:        #001D3D;
+  --color-primary-light:  #003566;
+
+  /* Accent / Highlights */
+  --color-accent:         #FFC300;
+  --color-accent-light:   #FFD60A;
+
+  /* Backgrounds */
+  --color-bg-primary:     #001D3D;
+  --color-bg-secondary:   #003566;
+  --color-surface:        #e7ebf0;
+
+  /* Typography */
+  --color-text-primary:   #e7ebf0;
+  --color-text-invert:    #000814;
+  --color-text-accent:    #FFC300;
+  --color-text-muted:     #7e93a0;
+
+  /* Overlay */
+  --color-overlay:        rgba(0, 8, 20, 0.85);
+
+  /* Typography System */
+  --font-base:            'Work Sans', sans-serif;
+  --font-size-base:       1rem;
+  --font-size-heading:    2.5rem;
+}
