@@ -7,19 +7,22 @@
   --color-primary-light:  #003566;
 
   /* Accent / Highlights */
-  --color-accent:         #FFC300;
+  --color-accent:         rgb(255, 195, 0);
   --color-accent-light:   #FFD60A;
+  --color-accent-muted:   #fde670;
+
 
   /* Backgrounds */
-  --color-bg-primary:     #001D3D;
+  --color-bg-primary:     rgb(0, 29, 61);
   --color-bg-secondary:   #003566;
-  --color-surface:        #e7ebf0;
+  --color-bg-primary-blured: #001d3d1a;
+  --color-surface:        #d3d3d3;
 
   /* Typography */
   --color-text-primary:   #e7ebf0;
   --color-text-invert:    #000814;
   --color-text-accent:    #FFC300;
-  --color-text-muted:     #7e93a0;
+  --color-text-muted:     #727a80;
 
   /* Overlay */
   --color-overlay:        rgba(0, 8, 20, 0.85);

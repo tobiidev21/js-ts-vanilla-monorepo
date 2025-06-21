@@ -3,6 +3,15 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Toma el 100% de la altura de la ventana */
+  position: relative;
+}
+
+canvas {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .main-container {
@@ -10,7 +19,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
+  min-height: 500px;
+  min-width: 500px;
+  padding: 0 64px;
+  
+  background-color: var(--color-bg-primary-blured); /* Fondo semitransparente */
+  backdrop-filter: blur(4px); /* Difumina el fondo detrás */
+  -webkit-backdrop-filter: blur(4px); /* Soporte para Safari */
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Sombra suave */
+
 }
 
 .form-container {
@@ -18,12 +44,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  height: auto;
-  width: 1000px;
-  /* background-color: var(--color-bg-secondary); */
 }
 .title {
     font-size: var(--font-size-heading);
+    color: var(--color-accent);
     margin: 10px 0 10px;
 }
 .description {
@@ -41,7 +65,7 @@
   color: var(--color-text-muted);
   font-weight: 500;
 }
-.submit-button {
+.shorten-button {
   background-color: var(--color-accent);
   font-weight: 900;
   color: var(--color-text-invert);
@@ -49,23 +73,41 @@
   border-radius: 4px;
   padding: 8px 16px;
   height: 2.5rem;
-  width: 5.5rem;
+  width: 6.5rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   /*Span and Icon Layout*/
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /*Animation*/
+  transition: transform 0.2s ease;
 }
-.submit-button:hover {
-    background-color: var(--color-primary-dark);
+.shorten-button:hover {
+    cursor: pointer;
+  transform: scale(1.05); /* Agranda el ícono */
+
+}
+.shorten-button:active  {
+  transform: scale(0.96);
+}
+.shorten-icon {
+  width: 1rem;
+  height: 1rem;
+}
+.shorten-icon span {
+  text-align: center;
 }
 .url-input {
   border: none;
   border-radius: 4px;
   padding: 8px 16px;
   background-color: var(--color-surface);
+  color: var(--color-text-invert);
+  font-weight: 900;
   width: 30rem;
   height: 2.5rem;
   margin: 0 1rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 .url-input::placeholder{
   color: var(--color-text-muted);
@@ -74,18 +116,87 @@
 .url-input:focus {
     outline: none;
 }
-.send-icon {
-  width: 1rem;
-  height: 1rem;
+.short-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-surface);
+  border-radius: 4px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  padding: 0;
 }
-.send-icon span {
-  text-align: center;
+
+.short-link input {
+  flex: 1;
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-invert);
+  cursor: default;
+  font-weight: 900;
 }
+
+.short-link input:focus {
+  outline: none;
+}
+
+.short-link button {
+  border: none;
+  border-radius: 0 4px 4px 0 ;
+  border-left: 2px solid var(--color-bg-primary);
+  padding: 8px 16px;
+  height: 2.5rem;
+  width: 6rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  background-color: var(--color-accent);
+  font-weight: 900;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.copy-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .footer {
   flex-basis: 60px; /* Altura mínima del footer */
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-bg-secondary);
-  border-top: 4px solid var(--color-border);
 }
+.social-links-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 200px;
+
+  background-color: var(--color-bg-primary-blured); /* Fondo semitransparente */
+  backdrop-filter: blur(4px); /* Difumina el fondo detrás */
+  -webkit-backdrop-filter: blur(4px); /* Soporte para Safari */
+  border-radius: 4px;
+  padding: 1.5rem;
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.4); /* Sombra suave */
+  margin: 8px;
+}
+.footer img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer img:hover {
+  transform: scale(1.2); /* Agranda el ícono */
+}
+
+.footer .separator {
+  width: 1px;
+  background-color: #ffc300;
+  height: 40px;
+}
+
+

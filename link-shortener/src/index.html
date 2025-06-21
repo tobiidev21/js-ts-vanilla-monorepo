@@ -1,30 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="javascript/particles.js" type="module"></script>
+    <script src="javascript/app.js" type="module"></script>
     <title>Link Shortener</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="layout">
-        <div class="main-container">
-            <main class="form-container">
-                <h1 class="title">Easy Link</h1>
-                <p class="description">A powerful tool to customize URLs</p>
-                <form action="" class="form">
-                    <label for="url" class="url-label">Insert URL:</label>
-                    <input type="url" name="url" class="url-input" id="url-input" placeholder="https://www.example.com">
-                    <button class="submit-button" type="submit"><img class="send-icon" src="../public/send-icon.svg" alt="Send Icon"><span>Send</span></button>
-                </form>
-            </main>
-            <section class="url-view-container">
-                Show Formated URL
-            </section>
+      <canvas id="particle-canvas"></canvas>
+      <div class="main-container">
+        <div class="main-content">
+          <main class="form-container">
+            <h1 class="title">Link Shortener</h1>
+            <p class="description">A powerful tool to customize URLs</p>
+            <form action="" class="form">
+              <label for="url" class="url-label">Insert URL:</label>
+              <input
+                type="url"
+                name="url"
+                class="url-input"
+                placeholder="https://www.example.com"
+              />
+              <button
+                class="shorten-button"
+                type="submit"
+                title="Click to shorten URL"
+              >
+                <img
+                  class="shorten-icon"
+                  src="../public/shorten-icon.svg"
+                  alt="Shorten Icon"
+                /><span>Shorten</span>
+              </button>
+            </form>
+          </main>
+          <section class="url-view-container">
+            <div class="short-link">
+              <input
+                type="text"
+                id="shortUrl"
+                class="short-link-input"
+                readonly
+                value="https://miapp.dev/abcd"
+              />
+              <button class="copy-button" title="Click to copy the shortened URL">
+                <img
+                  src="../public/copy-icon.svg"
+                  alt="Copy Icon"
+                  class="copy-icon"
+                /><span>Copy</span>
+              </button>
+            </div>
+          </section>
         </div>
-        <footer class="footer">
-            Mis redes
-        </footer>
+      </div>
+      <footer class="footer">
+        <div class="social-links-container">
+          <a
+            href="https://www.linkedin.com/in/tobias-leclercq-b1114621a/"
+            target="_blank"
+            ><img src="../public/linkedin-icon.svg" alt="Linkedin Icon"
+          /></a>
+          <div class="separator"></div>
+          <a href="https://github.com/tobiidev21" target="_blank"
+            ><img src="../public/github-icon.svg" alt="GitHub Icon"
+          /></a>
+        </div>
+      </footer>
     </div>
-</body>
+  </body>
 </html>
